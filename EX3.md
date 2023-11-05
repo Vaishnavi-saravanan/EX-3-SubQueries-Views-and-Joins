@@ -1,5 +1,7 @@
 # EX 3 SubQueries, Views and Joins 
-
+# DATE:
+# AIM:
+To write SubQueries, Views and Joins queries
 
 ## Create employee Table
 ```sql
