@@ -69,23 +69,27 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 
 ### QUERY:
+```
 CREATE VIEW details AS SELECT ENAME FROM EMP WHERE SALARY >(select SALARY from EMP where EMPNO=7566);
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/81dd14fa-c51f-4796-8ef8-493954800c72)
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
 ### QUERY:
+```
 CREATE VIEW minimum AS select ENAME,JOB,SALARY from EMP where SALARY =(select MIN(SALARY) from EMP);
-
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/b6e26b99-2531-4dae-bb1f-c2da9d5a6a2f)
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
 ### QUERY:
+```
 select ENAME,JOB from EMP where DEPTNO=10 AND JOB='SALESMAN';
-
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/5e79f800-b6b2-43fb-8bcb-5f9a3874835c)
 
@@ -93,23 +97,27 @@ select ENAME,JOB from EMP where DEPTNO=10 AND JOB='SALESMAN';
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
 ### QUERY:
+```
 create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/cfb0ef74-71d4-4942-9dfa-81144268dc0f)
 
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
 ### QUERY:
+```
 create view empv30 AS select EMPNO,ENAME,SALARY from EMP where DEPTNO=30;
-
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/12ba13f8-df88-4e9f-8efd-eaf055e0f8a5)
 
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
 ### QUERY:
+```
 update EMP set SALARY=SALARY*1.1 WHERE JOB='clerk';
-
+```
 create view empv5 as select EMPNO,ENAME,SALARY,JOB from EMP;
 
 ### OUTPUT:
@@ -146,8 +154,9 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 ### QUERY:
+```
 select s.name,c.cust_name,s.city from salesman1 as s ,customer1 as c where s.city=c.city;
-
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/e54dd6ef-529e-48d0-98ec-b015da039fa1)
 
@@ -155,25 +164,29 @@ select s.name,c.cust_name,s.city from salesman1 as s ,customer1 as c where s.cit
 
 
 ### QUERY:
+```
 select s.name,c.cust_name,c.city,s.commission from salesman1 as s inner join customer1 as c on s.city=c.city where s.commission>0.13;
-
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/2f07505b-2465-48d2-9956-b5cfbdf898f3)
 
 ### Q9) Perform Natural join on both tables
 
 ### QUERY:
+```
 select s.name,c.cust_name,c.city,s.commission from salesman1 as s natural join customer1 as c where s.commission>0.13;
-
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/c0bd364c-f8ec-4c8a-a4d2-6b6a6de0faea)
 
 ### Q10) Perform Left and right join on both tables
 
 ### QUERY:
+```
 select s.name,c.cust_name,c.city,s.commission from salesman1 as s left join customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
 
 select s.name,c.cust_name,c.city,s.commission from salesman1 as s right join customer1 as c on s.salesman_id=c.salesman_id where s.commission>0.13;
+```
 ### OUTPUT:
 ![image](https://github.com/Vaishnavi-saravanan/EX-3-SubQueries-Views-and-Joins/assets/118541897/30169ade-f1af-4270-bfb5-8ebd27161f76)
 
